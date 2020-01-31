@@ -38,32 +38,32 @@ jobs:
 
 
       - run:
-          name: qemu-coreboot
+          name: t430-flash
           command: |
             ./build/make-4.2.1/make \
                 CROSS=/cross/bin/x86_64-linux-musl- \
                 --load 2 \
                 V=1 \
-                BOARD=qemu-coreboot \
+                BOARD=t430-flash \
 
       - store-artifacts:
-          path: build/qemu-coreboot/coreboot.rom
+          path: build/t430-flash/t430-flash.rom
       - store-artifacts:
-          path: build/qemu-coreboot/hashes.txt
+          path: build/t430-flash/hashes.txt
 
       - run:
-          name: x230
+          name: t430
           command: |
             ./build/make-4.2.1/make \
                 CROSS=/cross/bin/x86_64-linux-musl- \
                 --load 2 \
                 V=1 \
-                BOARD=x230 \
+                BOARD=t430 \
 
       - store-artifacts:
-          path: build/x230/coreboot.rom
+          path: build/t430/coreboot.rom
       - store-artifacts:
-          path: build/x230/hashes.txt
+          path: build/t430/hashes.txt
 
 
 workflows:
